@@ -1,0 +1,123 @@
+/* ==========================================================================
+   WAYVIA public site (Phase 1). Everything is namespaced `wv-` so it cannot
+   touch the Customer, Driver or Admin portals.
+   ========================================================================== */
+
+.wv-root {
+  --wv-coal: #171416;
+  --wv-forest: #09251C;
+  --wv-crimson: #B5121B;
+  --wv-bone: #E9E5DC;
+  --wv-silver: #8C9690;
+  background: var(--wv-coal);
+  color: var(--wv-bone);
+}
+
+/* ---------- Type system ---------- */
+.wv-display {                       /* Hero: massive, condensed, uppercase */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 64%;
+  text-transform: uppercase;
+  line-height: 0.84;
+  letter-spacing: -0.012em;
+}
+.wv-display-wide {                  /* Statement lines: extended, light */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 300;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+}
+.wv-title {                         /* Section titles: medium-condensed, bold */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 800;
+  font-stretch: 78%;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.005em;
+}
+.wv-title-ext {                     /* Alternate section title: extended, heavy */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 700;
+  font-stretch: 118%;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.wv-label {                         /* Micro labels */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-weight: 600;
+  font-stretch: 112%;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+}
+.wv-num {                           /* Tabular figures for prices and counters */
+  font-family: 'Archivo', 'Bricolage Grotesque', system-ui, sans-serif;
+  font-stretch: 90%;
+  font-variant-numeric: tabular-nums;
+}
+
+.wv-outline {                       /* Outlined display text */
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--wv-stroke, #E9E5DC);
+}
+
+/* ---------- Surfaces ---------- */
+.wv-grain { position: relative; isolation: isolate; }
+.wv-grain::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background-image: var(--grain);
+  background-size: 180px 180px;
+  opacity: 0.09;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Road-marking dash used for route lines and dividers */
+.wv-dash {
+  background-image: linear-gradient(90deg, currentColor 50%, transparent 50%);
+  background-size: 18px 2px;
+  background-repeat: repeat-x;
+  height: 2px;
+}
+
+/* ---------- Angled geometry (speed-cut edges) ---------- */
+.wv-cut-br { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%); }
+.wv-cut-both { clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px); }
+.wv-slant-top { clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%); }
+.wv-slant-bottom { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%); }
+
+/* ---------- Marquee ---------- */
+.wv-marquee { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.wv-marquee:hover { animation-play-state: paused; }
+
+/* ---------- Photograph grade: pulls any photo into the charcoal/forest palette ---------- */
+.wv-grade { filter: grayscale(0.35) contrast(1.08) brightness(0.82) saturate(0.9); }
+
+/* ---------- Inputs inside the dark booking console ---------- */
+.wv-field {
+  width: 100%;
+  background: rgba(244, 241, 234, 0.05);
+  border: 1px solid rgba(233, 229, 220, 0.14);
+  color: var(--wv-bone);
+  padding: 0.7rem 0.85rem 0.7rem 2.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease;
+}
+.wv-field::placeholder { color: rgba(233, 229, 220, 0.38); }
+.wv-field:hover { border-color: rgba(233, 229, 220, 0.28); }
+.wv-field:focus { outline: none; border-color: #D1303A; background: rgba(244, 241, 234, 0.08); box-shadow: 0 0 0 3px rgba(181, 18, 27, 0.25); }
+.wv-field[type='date'], .wv-field[type='time'] { color-scheme: dark; }
+/* Narrow phones: two date/time fields share a row, so give the value text the room it needs */
+@media (max-width: 479px) {
+  .wv-field[type='date'], .wv-field[type='time'] { padding-right: 0.5rem; padding-left: 2.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-marquee { animation: none; }
+}

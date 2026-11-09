@@ -1,0 +1,287 @@
+/* Self-hosted variable fonts (SIL OFL 1.1, see src/assets/fonts/*.txt). No third-party font request,
+   works offline, and the rupee sign (U+20B9) lives in the latin-ext files. */
+/* Public-site display face. Width axis 62-125 gives condensed hero type through to extended labels. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  src: url('./assets/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./assets/fonts/bricolage-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./assets/fonts/bricolage-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./assets/fonts/jakarta-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 800;
+  src: url('./assets/fonts/jakarta-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy-primary: #14243B;
+    --ivory-base: #F7F5EF;
+    --mint-accent: #91D9C5;
+    --gold-accent: #E9B96D;
+    --charcoal-base: #202833;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', Manrope, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: #F7F5EF;
+    color: #202833;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+  }
+
+  .glass-card-dark {
+    background: rgba(20, 36, 59, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-panel-subtle {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #E9B96D 0%, #F5CE8B 50%, #C99645 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .mint-gradient-text {
+    background: linear-gradient(135deg, #91D9C5 0%, #B6EFE0 50%, #63C1A9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .navy-gradient-text {
+    background: linear-gradient(135deg, #14243B 0%, #203A5E 70%, #14243B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F5EF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C3D7EC;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #96BCE0;
+}
+
+
+/* Mobile viewport, safe-area and accessibility polish. */
+@layer base {
+  html { min-height: 100%; -webkit-text-size-adjust: 100%; }
+  body { min-width: 320px; }
+  button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid rgba(104, 185, 156, .75);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* ==========================================================================
+   Phase 0: premium foundation (tokens, textures, motion-ready utilities)
+   Everything above this line is unchanged from the original project.
+   ========================================================================== */
+
+@layer base {
+  :root {
+    --ink-deep: #080F1A;
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+    --edge-light: rgba(255, 255, 255, 0.14);
+    /* Fine film grain used by .texture-grain (inline SVG, no network request) */
+    --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Headlines use Bricolage Grotesque; optical sizing lets large headings switch to its sharper display cut. */
+  .font-display,
+  .font-editorial {
+    font-optical-sizing: auto;
+  }
+
+  /* Dark stages get a mint selection so text stays readable on navy. */
+  .dark-stage ::selection {
+    background: #91D9C5;
+    color: #14243B;
+  }
+}
+
+@layer utilities {
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* ---------- Textures & edges ---------- */
+
+  /* Adds a barely-there film grain over a surface. Content stays interactive. */
+  .texture-grain {
+    position: relative;
+    isolation: isolate;
+  }
+  .texture-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--grain);
+    background-size: 180px 180px;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .texture-grain > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Soft gradient rim that catches light on the top-left edge of dark surfaces. */
+  .edge-light {
+    position: relative;
+  }
+  .edge-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.04) 42%, rgba(145, 217, 197, 0.28));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    pointer-events: none;
+  }
+
+  /* ---------- Masks ---------- */
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+  }
+  .mask-fade-t {
+    -webkit-mask-image: linear-gradient(to top, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to top, #000 62%, transparent 100%);
+  }
+  .mask-fade-x {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+  }
+
+  /* ---------- Loading ---------- */
+  .skeleton {
+    background-color: rgba(20, 36, 59, 0.07);
+    background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.55) 45%, transparent 90%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+  .skeleton-dark {
+    background-color: rgba(255, 255, 255, 0.06);
+    background-image: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.10) 45%, transparent 90%);
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  /* ---------- Layout helpers ---------- */
+  .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  /* Dark, low-contrast scrollbars for night surfaces (driver portal, modals). */
+  .scrollbar-dark {
+    scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.18); }
+  .scrollbar-dark::-webkit-scrollbar-track { background: transparent; }
+
+  /* Reusable focus ring for custom controls. */
+  .focus-ring:focus-visible {
+    outline: 3px solid rgba(104, 185, 156, 0.75);
+    outline-offset: 2px;
+  }
+
+  /* GPU hint for elements that animate on scroll. */
+  .will-reveal { will-change: transform, opacity; }
+}
